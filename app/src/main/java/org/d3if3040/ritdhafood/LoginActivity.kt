@@ -14,8 +14,18 @@ class LoginActivity : AppCompatActivity() {
         binding = LoginLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setSupportActionBar(binding.toolbar) // set the Toolbar as the ActionBar
+        supportActionBar?.setDisplayHomeAsUpEnabled(true) // enable the Up button
+
+        // set the click listener for the Up button
+        binding.toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
+
         binding.loginButton.setOnClickListener {
             // Lakukan aksi login
+            binding.emailEdittext.text.toString()
+            binding.passwordEdittext.text.toString()
         }
     }
 }
