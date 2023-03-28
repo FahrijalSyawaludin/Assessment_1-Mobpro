@@ -5,4 +5,8 @@
     <string name="password">Password</string>
     <string name="email">Email</string>
     <string name="signup">Sign Up</string>
+    <string name="ritdha_food">Ritdha Food</string>
+    <string name="welcome_message">Welcome</string>
+    <string name="start_button_text">StartButton</string>
+    <string name="error_message_empty_fields">Pesan Error</string>
 </resources>

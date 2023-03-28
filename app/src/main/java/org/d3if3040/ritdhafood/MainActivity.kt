@@ -2,6 +2,9 @@ package org.d3if3040.ritdhafood
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.d3if3040.ritdhafood.databinding.ActivityMainBinding
 import org.d3if3040.ritdhafood.databinding.LoginLayoutBinding
 
@@ -14,8 +17,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonLogin.setOnClickListener {
-            val loginBinding = LoginLayoutBinding.inflate(layoutInflater)
-            setContentView(loginBinding.root)
+            CoroutineScope(Dispatchers.Main).launch {
+                val loginBinding = LoginLayoutBinding.inflate(layoutInflater)
+                setContentView(loginBinding.root)
+            }
         }
     }
 }

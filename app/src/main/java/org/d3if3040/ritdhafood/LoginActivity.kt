@@ -1,5 +1,6 @@
 package org.d3if3040.ritdhafood
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import org.d3if3040.ritdhafood.databinding.LoginLayoutBinding
@@ -23,9 +24,33 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.loginButton.setOnClickListener {
-            // Lakukan aksi login
-            binding.emailEdittext.text.toString()
-            binding.passwordEdittext.text.toString()
+            val email = binding.emailEdittext.text.toString()
+            val password = binding.passwordEdittext.text.toString()
+
+            // Validate input
+            if (email.isEmpty() || password.isEmpty()) {
+                // Show error message
+                binding.errorMessage.text = getString(R.string.error_message_empty_fields)
+                return@setOnClickListener
+            }
+
+            // Authenticate user
+            val authenticated = authenticateUser(email, password)
+
+            if (authenticated) {
+                // Navigate to home screen
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+                finish() // Prevent the user from going back to the login screen
+            } else {
+                // Show error message
+                binding.errorMessage.text = getString(R.string.error_message_empty_fields)
+            }
         }
+    }
+
+    private fun authenticateUser(email: String, password: String): Boolean {
+        // Replace this with your authentication logic
+        return email == "cps@gmail.com" && password == "fahri123"
     }
 }
