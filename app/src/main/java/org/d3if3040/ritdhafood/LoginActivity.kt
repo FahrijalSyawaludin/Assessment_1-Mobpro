@@ -38,6 +38,13 @@ class LoginActivity : AppCompatActivity() {
             val authenticated = authenticateUser(email, password)
 
             if (authenticated) {
+                // Save user data to SharedPreferences
+                val sharedPreferences = getSharedPreferences("userData", MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.putString("email", email)
+                editor.putString("password", password)
+                editor.apply()
+
                 // Navigate to home screen
                 val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
