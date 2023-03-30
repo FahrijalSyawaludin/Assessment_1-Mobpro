@@ -15,13 +15,35 @@
         android:layout_marginEnd="20dp"/>
 
     <TextView
+        android:id="@+id/dashboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
         android:text="DASHBOARD"
         android:textSize="28sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_margin="20dp"/>
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="20dp"
+        android:hint="Tambahkan catatan disini"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Simpan"
+        android:layout_below="@id/etNote"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
 
 
 </RelativeLayout>
