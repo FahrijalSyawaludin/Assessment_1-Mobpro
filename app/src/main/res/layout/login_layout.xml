@@ -1,104 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
 
-    <RelativeLayout
-        android:id="@+id/login_layout"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/login_background">
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:cardBackgroundColor="@color/design_default_color_primary"
+        app:cardCornerRadius="20dp">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:elevation="4dp"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            android:title="@string/login"
-            app:navigationIcon="@drawable/ic_arrow_back"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-
-
-        <ImageView
-            android:id="@+id/login_logo"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/logo"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="64dp"/>
+            android:layout_margin="20dp"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/email_edittext"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_below="@id/login_logo"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="48dp"
-            android:background="@drawable/login_input_background"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            android:paddingStart="24dp"
-            android:paddingEnd="24dp"
-            android:textColorHint="#CCCCCC"
-            android:textSize="16sp" />
+            <TextView
+                android:id="@+id/tvLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="LOGIN"
+                android:textColor="@color/white"
+                android:textSize="28sp"
+                android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/password_edittext"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/login_input_background"
-            android:hint="@string/password"
-            android:paddingStart="24dp"
-            android:paddingEnd="24dp"
-            android:textColorHint="#CCCCCC"
-            android:textSize="16sp"
-            android:inputType="textPassword"
-            android:layout_below="@id/email_edittext"
-            android:layout_marginStart="48dp"
-            android:layout_marginEnd="48dp"/>
+            <EditText
+                android:id="@+id/etUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/design_default_color_on_primary"
+                android:drawableStart="@drawable/baseline_person_24"
+                android:drawablePadding="20dp"
+                android:hint="Username"
+                android:padding="28dp"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textColorHint="@color/design_default_color_on_secondary" />
 
-        <Button
-            android:id="@+id/login_button"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/login_button_background"
-            android:text="@string/login"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:layout_below="@id/password_edittext"
-            android:layout_marginStart="48dp"
-            android:layout_marginEnd="48dp"
-            android:layout_marginTop="32dp"/>
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/white"
+                android:drawableStart="@drawable/baseline_lock_24"
+                android:drawablePadding="20dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="28dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black" />
 
-        <TextView
-            android:id="@+id/forgot_password_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/errorMessage"
-            android:layout_marginTop="16dp"
-            android:text="@string/forgot_password"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:layout_centerHorizontal="true"/>
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="@color/cardview_dark_background"
+                android:padding="20dp"
+                android:text="LOGIN"
+                android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/errorMessage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/login_button"
-            android:layout_marginTop="16dp"
-            android:text="@string/error_message_empty_fields"
-            android:textColor="@color/design_default_color_error"
-            android:textSize="16sp"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/tvRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="Belum Punya Akun? Daftar Sekarang!"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
 
-    </RelativeLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
