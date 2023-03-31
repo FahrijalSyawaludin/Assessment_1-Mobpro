@@ -30,6 +30,16 @@
                 android:textSize="28sp"
                 android:textStyle="bold" />
 
+            <ImageView
+                android:id="@+id/login_logo"
+                android:layout_width="116dp"
+                android:layout_height="84dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:src="@drawable/login" />
+
+
             <EditText
                 android:id="@+id/etUsername"
                 android:layout_width="match_parent"

@@ -13,31 +13,29 @@
 
         <Button
             android:id="@+id/btnKeluar"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="@drawable/baseline_login_24"
+            android:layout_width="49dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"/>
+            android:layout_marginEnd="21dp"
+            android:background="@drawable/baseline_login_24" />
 
-        <TextView
-            android:id="@+id/dashboard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/login_logo"
+            android:layout_width="391dp"
+            android:layout_height="94dp"
+            android:layout_gravity="center"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="29dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:gravity="center"
-            android:text="DASHBOARD"
-            android:textSize="28sp"
-            android:textStyle="bold" />
+            android:src="@drawable/qrcodes" />
 
         <TextView
             android:id="@+id/tvJudul"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="130dp"
             android:gravity="center"
             android:text="QR-CODE GENERATOR"
             android:textColor="@color/purple_700"
