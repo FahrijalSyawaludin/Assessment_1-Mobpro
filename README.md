@@ -22,10 +22,11 @@ Aplikasi Login dan QR Code Generator memiliki fitur-fitur berikut:
 4. Tampilan antarmuka yang ramah pengguna dan mudah digunakan.
 
 # Tampilan:
-![Alt Text](wrapper/SplashScreen.png)
-![Alt Text](wrapper/Register.png)
-![Alt Text](wrapper/Login.png)
-![Alt Text](wrapper/QrCode.png)
+![Splash](Splash.png)
+![Register](Register.png)
+![Login](Login.png)
+![QrCode](QrCode.png)
+
 # Dependensi
 Aplikasi ini menggunakan dependensi berikut:
 
