@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme.Dark" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryDarkVariant</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!-- tambahkan item-item style yang lain -->
+    </style>
+</resources>
