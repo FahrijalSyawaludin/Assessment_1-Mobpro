@@ -1,8 +1,6 @@
 package org.d3if3040.logindanqrcode.Model;
 
-import java.io.Serializable;
-
-public class UserData implements Serializable {
+public class UserData {
     private int id;
     private String username;
     private String password;

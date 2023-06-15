@@ -3,6 +3,7 @@ package org.d3if3040.logindanqrcode.ViewModel;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -21,11 +22,17 @@ import org.d3if3040.logindanqrcode.Model.DataBaseHeleperLogin;
 import org.d3if3040.logindanqrcode.Model.UserData;
 import org.d3if3040.logindanqrcode.MainActivity;
 import org.d3if3040.logindanqrcode.R;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViewDataActivity extends AppCompatActivity {
+public class ViewDataActivityApi extends AppCompatActivity {
     private List<UserData> dataList = new ArrayList<>();
     private RecyclerView recyclerView;
     private DataAdapter dataAdapter;
@@ -34,7 +41,7 @@ public class ViewDataActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_data);
+        setContentView(R.layout.activity_view_data_api);
 
         recyclerView = findViewById(R.id.recycler_view);
         dbHelper = new DataBaseHeleperLogin(this);
@@ -47,7 +54,7 @@ public class ViewDataActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ViewDataActivity.this, ViewDataActivityApi.class);
+                Intent intent = new Intent(ViewDataActivityApi.this, MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -56,29 +63,59 @@ public class ViewDataActivity extends AppCompatActivity {
 
 
     private void loadData() {
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM user", null);
-        if (cursor.moveToFirst()) {
-            do {
-                int id = cursor.getInt(cursor.getColumnIndex("id"));
-                String username = "";
-                int index = cursor.getColumnIndex("username");
-                if (index >= 0) {
-                    username = cursor.getString(index);
-                }
-                String password = "";
-                index = cursor.getColumnIndex("password");
-                if (index >= 0) {
-                    password = cursor.getString(index);
-                }
-                UserData data = new UserData(id, username, password);
-                dataList.add(data);
-            } while (cursor.moveToNext());
-        }
+        String url = "https://raw.githubusercontent.com/FahrijalSyawaludin/API/main/UserData";
 
-        cursor.close();
-        dbHelper.close();
+        AsyncTask<Void, Void, JSONArray> loadDataTask = new AsyncTask<Void, Void, JSONArray>() {
+            @Override
+            protected JSONArray doInBackground(Void... voids) {
+                try {
+                    // Membuat koneksi HTTP
+                    HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+                    connection.setRequestMethod("GET");
+
+                    // Membaca respon dari koneksi HTTP
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                    String line;
+                    StringBuilder response = new StringBuilder();
+                    while ((line = reader.readLine()) != null) {
+                        response.append(line);
+                    }
+                    reader.close();
+
+                    // Parsing data JSON
+                    return new JSONArray(response.toString());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(JSONArray jsonArray) {
+                if (jsonArray != null) {
+                    try {
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            int id = jsonObject.getInt("id");
+                            String username = jsonObject.getString("username");
+                            String password = jsonObject.getString("password");
+
+                            UserData data = new UserData(id, username, password);
+                            dataList.add(data);
+                        }
+
+                        // Menampilkan data kepada pengguna
+                        dataAdapter.notifyDataSetChanged();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+
+        loadDataTask.execute();
     }
+
 
     public class DataViewHolder extends RecyclerView.ViewHolder {
         private TextView tv_username, tv_password;

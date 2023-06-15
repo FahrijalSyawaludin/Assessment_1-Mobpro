@@ -37,6 +37,10 @@
             android:parentActivityName=".View.LoginActivity">
         </activity>
         <activity
+            android:name=".ViewModel.ViewDataActivityApi"
+            android:label="View Data Activity Api">
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="false"
             android:parentActivityName=".ViewModel.ViewDataActivity">

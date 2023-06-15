@@ -15,14 +15,8 @@ import com.google.zxing.WriterException
 import com.journeyapps.barcodescanner.BarcodeEncoder
 import org.d3if3040.logindanqrcode.ViewModel.AboutActivity
 import org.d3if3040.logindanqrcode.Model.DataBaseHeleperLogin
-import org.d3if3040.logindanqrcode.Model.UserData
 import org.d3if3040.logindanqrcode.View.LoginActivity
 import org.d3if3040.logindanqrcode.databinding.ActivityMainBinding
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
     private lateinit var db: DataBaseHeleperLogin
@@ -59,7 +53,6 @@ class MainActivity : AppCompatActivity() {
                 startActivity(keluar)
                 finish()
             }
-
         }
 
         binding.btnCreate.setOnClickListener {
@@ -84,40 +77,6 @@ class MainActivity : AppCompatActivity() {
 
         // Memberikan aksi ketika tombol Up diklik
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
-
-        // Membuat objek Retrofit
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://raw.githubusercontent.com/FahrijalSyawaludin/API/main/UserData/") // Tambahkan tanda "/" di akhir URL
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        // Membuat objek ApiService menggunakan Retrofit
-        val apiService = retrofit.create(ApiService::class.java)
-
-        // Memanggil endpoint yang mengambil data JSON
-        val call = apiService.userData
-        call.enqueue(object : Callback<List<UserData>> {
-            override fun onResponse(call: Call<List<UserData>>, response: Response<List<UserData>>) {
-                if (response.isSuccessful) {
-                    val userDataList = response.body()
-                    // Lakukan operasi dengan data yang diterima
-                    // Contoh: Tampilkan data dalam TextView
-                    userDataList?.let {
-                        for (userData in it) {
-                            val username = userData.username
-                            val password = userData.password
-                            // Tampilkan username dan password ke TextView atau view lainnya
-                        }
-                    }
-                } else {
-                    // Menangani respon gagal
-                }
-            }
-
-            override fun onFailure(call: Call<List<UserData>>, t: Throwable) {
-                // Menangani kesalahan jaringan atau koneksi
-            }
-        })
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
