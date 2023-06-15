@@ -1,5 +1,6 @@
 package org.d3if3040.logindanqrcode.ViewModel;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -60,7 +61,7 @@ public class ViewDataActivity extends AppCompatActivity {
         Cursor cursor = db.rawQuery("SELECT * FROM user", null);
         if (cursor.moveToFirst()) {
             do {
-                int id = cursor.getInt(cursor.getColumnIndex("id"));
+                @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex("id"));
                 String username = "";
                 int index = cursor.getColumnIndex("username");
                 if (index >= 0) {

@@ -54,7 +54,7 @@ public class ViewDataActivityApi extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ViewDataActivityApi.this, MainActivity.class);
+                Intent intent = new Intent(ViewDataActivityApi.this, ImageApiActivity.class);
                 startActivity(intent);
             }
         });
