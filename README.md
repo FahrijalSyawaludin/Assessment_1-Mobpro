@@ -20,9 +20,11 @@ Aplikasi Login dan QR Code Generator memiliki fitur-fitur berikut:
 2. Dapat mengganti Nama User dan Password.
 3. Dapat Menghapus User dan Password.
 4. Memiliki Navigasi untuk Share dan About.
-5. Kemampuan menghasilkan kode QR dengan cepat dan mudah.
-6. Kemampuan menyimpan kode QR pada perangkat atau membagikannya dengan mudah.
-7. Tampilan antarmuka yang ramah pengguna dan mudah digunakan.
+5. Memiliki Halaman Data User API
+6. Memiliki Halaman Image API
+7. Kemampuan menghasilkan kode QR dengan cepat dan mudah.
+8. Kemampuan menyimpan kode QR pada perangkat atau membagikannya dengan mudah.
+9. Tampilan antarmuka yang ramah pengguna dan mudah digunakan.
 
 # Tampilan:
 # Splash Screen:
@@ -35,6 +37,10 @@ Aplikasi Login dan QR Code Generator memiliki fitur-fitur berikut:
 ![Halaman Data Login](Data.jpeg)
 # Halaman Edit:
 ![Halaman Edit](Edit.jpeg)
+# Halaman User API:
+![Halaman User API](User.jpeg)
+# Halaman Image API:
+![Halaman Image API](Image.jpeg)
 # Halaman QrCode:
 ![Halaman QrCode](QR.jpeg)
 # Navigasi About:
