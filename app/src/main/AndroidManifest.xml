@@ -41,6 +41,9 @@
             android:label="View Data Activity Api">
         </activity>
         <activity
+            android:name=".ViewModel.ImageApiActivity"
+            android:label="Image API Activity" />
+        <activity
             android:name=".MainActivity"
             android:exported="false"
             android:parentActivityName=".ViewModel.ViewDataActivity">
