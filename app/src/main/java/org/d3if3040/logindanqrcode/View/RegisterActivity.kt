@@ -1,4 +1,4 @@
-package org.d3if3040.logindanqrcode
+package org.d3if3040.logindanqrcode.View
 
 import android.app.Activity
 import android.content.DialogInterface
@@ -8,26 +8,30 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
-import org.d3if3040.logindanqrcode.databinding.RegisterBinding
+import org.d3if3040.logindanqrcode.DataBase.OnDialogCloseListener
+import org.d3if3040.logindanqrcode.Model.DataBaseHeleperLogin
+import org.d3if3040.logindanqrcode.databinding.RegisterFragmentBinding
 
-class Register : DialogFragment() {
+class RegisterActivity : DialogFragment() {
     private lateinit var db: DataBaseHeleperLogin
-    private var _binding: RegisterBinding? = null
+    private var _binding: RegisterFragmentBinding? = null
     private val binding get() = _binding!!
 
     companion object {
         const val TAG = "Register"
-        fun newInstance() = Register()
+        fun newInstance() = RegisterActivity()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = RegisterBinding.inflate(inflater, container, false)
+        _binding = RegisterFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        db = DataBaseHeleperLogin(requireActivity())
+        db = DataBaseHeleperLogin(
+            requireActivity()
+        )
 
         binding.btnRegister.setOnClickListener {
             val inUsername = binding.etUsername.text.toString()

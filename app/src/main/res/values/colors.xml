@@ -10,5 +10,6 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorPrimaryDarkVariant">#2b2b2b</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="my_color">#FF4081</color>
     <!-- tambahkan warna-warna yang lain -->
 </resources>

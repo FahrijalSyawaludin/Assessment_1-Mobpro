@@ -13,7 +13,7 @@
         android:forceDarkAllowed="true"
         tools:targetApi="31">
         <activity
-            android:name=".SplashScreen"
+            android:name=".Screen.SplashScreen"
             android:exported="true"
             android:configChanges="uiMode">
             <intent-filter>
@@ -24,12 +24,28 @@
 
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".ViewModel.LoginViewModel"
             android:exported="true">
         </activity>
         <activity
+            android:name=".View.LoginActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".ViewModel.ViewDataActivity"
+            android:label="View Data Activity"
+            android:parentActivityName=".View.LoginActivity">
+        </activity>
+        <activity
             android:name=".MainActivity"
-            android:exported="false"/>
+            android:exported="false"
+            android:parentActivityName=".ViewModel.ViewDataActivity">
+        </activity>
+        <activity android:name=".ViewModel.EditDataActivity"
+            android:exported="false">
+        </activity>
+        <activity android:name=".ViewModel.AboutActivity"
+            android:parentActivityName=".MainActivity"/>
     </application>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ManifestOrder,ScopedStorage" />
