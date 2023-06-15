@@ -18,8 +18,8 @@ import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 
 import org.d3if3040.logindanqrcode.worker.ImageApiWorker;
-import org.d3if3040.logindanqrcode.MainActivity;
 import org.d3if3040.logindanqrcode.R;
+import org.d3if3040.logindanqrcode.MainActivity; // Add this import statement
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;

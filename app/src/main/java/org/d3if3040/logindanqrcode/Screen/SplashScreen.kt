@@ -5,8 +5,9 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import org.d3if3040.logindanqrcode.View.LoginActivity
 import org.d3if3040.logindanqrcode.MainActivity
+import org.d3if3040.logindanqrcode.View.LoginActivity
+
 import org.d3if3040.logindanqrcode.databinding.ActivitySplashScreenBinding
 
 class SplashScreen : AppCompatActivity() {

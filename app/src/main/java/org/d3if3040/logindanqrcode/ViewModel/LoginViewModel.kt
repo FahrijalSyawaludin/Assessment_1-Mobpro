@@ -1,5 +1,6 @@
 package org.d3if3040.logindanqrcode.ViewModel
 
+import org.d3if3040.logindanqrcode.MainActivity.Companion.SHARED_PREF_NAME
 import android.app.Application
 import android.content.Context
 import android.content.Intent
@@ -7,7 +8,6 @@ import android.content.SharedPreferences
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.AndroidViewModel
-import org.d3if3040.logindanqrcode.MainActivity.Companion.SHARED_PREF_NAME
 import org.d3if3040.logindanqrcode.Model.LoginRepository
 import org.d3if3040.logindanqrcode.View.RegisterActivity
 

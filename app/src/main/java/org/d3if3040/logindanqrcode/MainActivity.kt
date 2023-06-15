@@ -1,9 +1,12 @@
 package org.d3if3040.logindanqrcode
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Bitmap
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -21,9 +24,12 @@ import org.d3if3040.logindanqrcode.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     private lateinit var db: DataBaseHeleperLogin
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var notificationChannel: NotificationChannel
 
     companion object {
         const val SHARED_PREF_NAME = "myPref"
+        const val CHANNEL_ID = "org.d3if3040.logindanqrcode.notification"
+        const val CHANNEL_NAME = "My Notification"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +39,8 @@ class MainActivity : AppCompatActivity() {
 
         db = DataBaseHeleperLogin(this)
         sharedPreferences = getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+
+        createNotificationChannel()
 
         val checkSession = db.checkSession("ada")
         if (!checkSession) {
@@ -72,11 +80,23 @@ class MainActivity : AppCompatActivity() {
                 e.printStackTrace()
             }
         }
+
         // Menampilkan tombol Up di ActionBar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // Memberikan aksi ketika tombol Up diklik
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
+    }
+
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            notificationChannel = NotificationChannel(CHANNEL_ID, CHANNEL_NAME, importance)
+            notificationChannel.enableVibration(true)
+
+            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(notificationChannel)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -110,5 +130,4 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         return true
     }
-
 }

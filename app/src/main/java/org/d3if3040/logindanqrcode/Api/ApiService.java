@@ -1,4 +1,4 @@
-package org.d3if3040.logindanqrcode;
+package org.d3if3040.logindanqrcode.Api;
 
 import org.d3if3040.logindanqrcode.Model.UserData;
 

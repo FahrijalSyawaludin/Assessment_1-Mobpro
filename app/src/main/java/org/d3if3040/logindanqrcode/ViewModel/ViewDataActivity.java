@@ -20,7 +20,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.d3if3040.logindanqrcode.Model.DataBaseHeleperLogin;
 import org.d3if3040.logindanqrcode.Model.UserData;
-import org.d3if3040.logindanqrcode.MainActivity;
 import org.d3if3040.logindanqrcode.R;
 
 import java.util.ArrayList;
